@@ -28,7 +28,6 @@ const disemvowel = (str) => {
     return newStr;
 }
 
-
 function disemvowel(str) {
   const vowels = 'aeiou';
   
