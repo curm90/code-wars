@@ -21,6 +21,16 @@ function comp(arr1, arr2) {
   return true;
 }
 
+function comp(arr1, arr2) {
+  if (!arr1 || !arr2) return false;
+  const sortedArr1 = arr1.sort((a, b) => a - b);
+  const sortedArr2 = arr2.sort((a, b) => a - b);
+
+  return sortedArr1
+    .map((num) => num * num)
+    .every((val, i) => val === sortedArr2[i]);
+}
+
 a1 = [66, 40, 5, 83, 56, 8, 97, 47];
 a2 = [4356, 1600, 25, 6889, 3136, 64, 9409, 2210];
 console.log(comp(a1, a2), false);
