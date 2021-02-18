@@ -10,7 +10,21 @@ function flattenAndSort(array) {
       result.push(array[i][j]);
     }
   }
-  return result.sort((a, b) => (a < b ? -1 : b < a ? 1 : 0));
+  return result.sort((a, b) => a - b);
+}
+
+function flattenAndSort(array) {
+  const result = [];
+
+  for (let i = 0; i < array.length; i++) {
+    result.push(...array[i]);
+  }
+
+  return result.sort((a, b) => a - b);
+}
+
+function flattenAndSort(array) {
+  return [].concat(...array).sort((a, b) => a - b);
 }
 
 console.log(flattenAndSort([]), []);
