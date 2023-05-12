@@ -21,6 +21,16 @@ function encode(str, n) {
   return charNums.map((num, i) => num + +extendedNumberArr[i]);
 }
 
+function encode(str, n) {
+  const extendedNumber = n.toString();
+
+  return [...str].map((letter, i) => {
+    return (
+      letter.charCodeAt() - 96 + +extendedNumber[i % extendedNumber.length]
+    );
+  });
+}
+
 console.log(encode('scout', 1939), [20, 12, 18, 30, 21]);
 console.log(
   encode('masterpiece', 1939),
