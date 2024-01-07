@@ -25,6 +25,24 @@ const createSecretHolder = (secret) => ({
   setSecret: (_secret) => (secret = _secret),
 });
 
+class Secret {
+  constructor(secret) {
+    this.secret = secret;
+  }
+
+  getSecret() {
+    return this.secret;
+  }
+
+  setSecret(_secret) {
+    this.secret = _secret;
+  }
+}
+
+function createSecretHolder(secret) {
+  return new Secret(secret);
+}
+
 const obj = createSecretHolder(5);
 console.log(obj.getSecret(), 5);
 console.log(obj.setSecret(2));
