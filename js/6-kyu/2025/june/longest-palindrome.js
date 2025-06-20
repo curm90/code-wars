@@ -27,6 +27,32 @@ function longestPalindrome(s) {
   return maxLength;
 }
 
+// Had to add this for reference from chatgpt called Manacher’s Algorithm runs in 0n but no idea whats going on
+function longestPalindrome(s) {
+  if (!s) return 0;
+  // Transform s to add boundaries (#) to handle even/odd palindromes uniformly
+  let t = '^#' + s.split('').join('#') + '#$';
+  let n = t.length;
+  let p = new Array(n).fill(0);
+  let center = 0,
+    right = 0,
+    maxLen = 0;
+
+  for (let i = 1; i < n - 1; i++) {
+    let mirror = 2 * center - i;
+    if (i < right) p[i] = Math.min(right - i, p[mirror]);
+    // Expand around center i
+    while (t[i + (1 + p[i])] === t[i - (1 + p[i])]) p[i]++;
+    // Update center and right boundary
+    if (i + p[i] > right) {
+      center = i;
+      right = i + p[i];
+    }
+    maxLen = Math.max(maxLen, p[i]);
+  }
+  return maxLen;
+}
+
 console.log(longestPalindrome('a'), 1);
 console.log(longestPalindrome('aa'), 2);
 console.log(longestPalindrome('baa'), 2);
