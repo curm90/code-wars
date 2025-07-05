@@ -24,6 +24,26 @@ function ipsBetweenBitwise(start, end) {
   return ipToNumber(end) - ipToNumber(start);
 }
 
+function ipsBetweenSingleBitwise(start, end) {
+  const ipToNumber = (ip) => {
+    const [a, b, c, d] = ip.split('.').map(Number);
+    return (((((a << 8) | b) << 8) | c) << 8) | d;
+  };
+
+  return ipToNumber(end) - ipToNumber(start);
+}
+
+function ipsBetweenCompact(start, end) {
+  const ipToNumber = (ip) => {
+    return ip
+      .split('.')
+      .map(Number)
+      .reduce((acc, octet) => (acc << 8) | octet, 0);
+  };
+
+  return ipToNumber(end) - ipToNumber(start);
+}
+
 console.log(ipsBetween('150.0.0.0', '150.0.0.1', 1));
 console.log(ipsBetween('10.0.0.0', '10.0.0.50', 50));
 console.log(ipsBetween('20.0.0.10', '20.0.1.0', 246));
