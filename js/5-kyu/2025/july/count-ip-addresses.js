@@ -15,6 +15,15 @@ function ipsBetween(start, end) {
   return endNum - startNum;
 }
 
+function ipsBetweenBitwise(start, end) {
+  const ipToNumber = (ip) => {
+    const parts = ip.split('.').map(Number);
+    return (parts[0] << 24) + (parts[1] << 16) + (parts[2] << 8) + parts[3];
+  };
+
+  return ipToNumber(end) - ipToNumber(start);
+}
+
 console.log(ipsBetween('150.0.0.0', '150.0.0.1', 1));
 console.log(ipsBetween('10.0.0.0', '10.0.0.50', 50));
 console.log(ipsBetween('20.0.0.10', '20.0.1.0', 246));
