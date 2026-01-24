@@ -19,6 +19,18 @@ function differenceOfSquares(n) {
   return squareSum - sumOfSquares;
 }
 
+function differenceOfSquares(n) {
+  let sum = 0;
+  let sumOfSquares = 0;
+
+  for (let i = 1; i <= n; i++) {
+    sum += i;
+    sumOfSquares += i * i;
+  }
+
+  return sum * sum - sumOfSquares;
+}
+
 console.log(differenceOfSquares(5), 170, 'differenceOfSquares(5)');
 console.log(differenceOfSquares(10), 2640, 'differenceOfSquares(10)');
 console.log(differenceOfSquares(100), 25164150, 'differenceOfSquares(100)');
