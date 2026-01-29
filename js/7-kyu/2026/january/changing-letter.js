@@ -20,6 +20,10 @@ function swap(string) {
   return result;
 }
 
+function swap(string) {
+  return string.replace(/[aeiou]/gi, (match) => match.toUpperCase());
+}
+
 console.log(swap(''), '');
 console.log(swap('   @@@'), '   @@@');
 console.log(swap('HelloWorld!'), 'HEllOWOrld!');
