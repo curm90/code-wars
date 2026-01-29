@@ -9,6 +9,17 @@ function swap(string) {
     .join('');
 }
 
+function swap(string) {
+  const vowels = 'aeiou';
+  let result = '';
+
+  for (const char of string) {
+    result += vowels.includes(char.toLowerCase()) ? char.toUpperCase() : char;
+  }
+
+  return result;
+}
+
 console.log(swap(''), '');
 console.log(swap('   @@@'), '   @@@');
 console.log(swap('HelloWorld!'), 'HEllOWOrld!');
