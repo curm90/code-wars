@@ -22,6 +22,15 @@ function stringMerge(string1, string2, letter) {
   return result.join('');
 }
 
+function stringMerge(string1, string2, letter) {
+  const index1 = string1.indexOf(letter);
+  const index2 = string2.indexOf(letter);
+
+  if (index1 === -1 || index2 === -1) return string1 + string2;
+
+  return string1.slice(0, index1 + 1) + string2.slice(index2 + 1);
+}
+
 console.log(stringMerge('person', 'here', 'e'), 'pere');
 console.log(stringMerge('apowiejfoiajsf', 'iwahfeijouh', 'j'), 'apowiejouh');
 console.log(stringMerge('abcdefxxxyzz', 'abcxxxyyyxyzz', 'x'), 'abcdefxxxyyyxyzz');
