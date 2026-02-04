@@ -13,6 +13,25 @@ function balancedNum(number) {
   return leftSum === rightSum ? 'Balanced' : 'Not Balanced';
 }
 
+function balancedNum(number) {
+  const strNum = number.toString();
+  const length = strNum.length;
+
+  if (length <= 2) return 'Balanced';
+
+  let leftSum = 0;
+  let rightSum = 0;
+
+  const digitsPerSide = Math.floor((strNum.length - 1) / 2);
+
+  for (let i = 0; i < digitsPerSide; i++) {
+    leftSum += +strNum[i];
+    rightSum += +strNum[strNum.length - 1 - i];
+  }
+
+  return leftSum === rightSum ? 'Balanced' : 'Not Balanced';
+}
+
 console.log(balancedNum(7), 'Balanced', 'balancedNum(7)');
 console.log(balancedNum(959), 'Balanced', 'balancedNum(959)');
 console.log(balancedNum(1301), 'Balanced', 'balancedNum(959)');
