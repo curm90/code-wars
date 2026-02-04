@@ -22,12 +22,26 @@ function balancedNum(number) {
   let leftSum = 0;
   let rightSum = 0;
 
-  const digitsPerSide = Math.floor((strNum.length - 1) / 2);
+  const digitsPerSide = Math.floor((length - 1) / 2);
 
   for (let i = 0; i < digitsPerSide; i++) {
     leftSum += +strNum[i];
-    rightSum += +strNum[strNum.length - 1 - i];
+    rightSum += +strNum[length - 1 - i];
   }
+
+  return leftSum === rightSum ? 'Balanced' : 'Not Balanced';
+}
+
+function balancedNum(number) {
+  const digits = number.toString().split('').map(Number);
+  const length = digits.length;
+
+  if (length <= 2) return 'Balanced';
+
+  const digitsPerSide = Math.floor((length - 1) / 2);
+
+  const leftSum = digits.slice(0, digitsPerSide).reduce((sum, digit) => sum + digit);
+  const rightSum = digits.slice(-digitsPerSide).reduce((sum, digit) => sum + digit);
 
   return leftSum === rightSum ? 'Balanced' : 'Not Balanced';
 }
