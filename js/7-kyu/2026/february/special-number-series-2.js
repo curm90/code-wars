@@ -10,6 +10,14 @@ function disariumNumber(n) {
   return n === sum ? 'Disarium !!' : 'Not !!';
 }
 
+function disariumNumber(n) {
+  const sum = n
+    .toString()
+    .split('')
+    .reduce((acc, digit, i) => acc + Math.pow(+digit, i + 1), 0);
+  return n === sum ? 'Disarium !!' : 'Not !!';
+}
+
 console.log(disariumNumber(89), 'Disarium !!');
 console.log(disariumNumber(564), 'Not !!');
 console.log(disariumNumber(1024), 'Not !!');
