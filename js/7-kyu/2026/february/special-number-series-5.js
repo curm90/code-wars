@@ -20,6 +20,10 @@ function specialNumber(n) {
   return 'Special!!';
 }
 
+function specialNumber(n) {
+  return /[6-9]/.test(n.toString()) ? 'NOT!!' : 'Special!!';
+}
+
 console.log(specialNumber(2), 'Special!!');
 console.log(specialNumber(3), 'Special!!');
 console.log(specialNumber(6), 'NOT!!');
