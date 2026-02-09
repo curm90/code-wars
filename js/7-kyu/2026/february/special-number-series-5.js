@@ -10,6 +10,16 @@ function specialNumber(n) {
   return 'Special!!';
 }
 
+function specialNumber(n) {
+  const str = n.toString();
+
+  for (const digit of str) {
+    if (digit > 5) return 'NOT!!';
+  }
+
+  return 'Special!!';
+}
+
 console.log(specialNumber(2), 'Special!!');
 console.log(specialNumber(3), 'Special!!');
 console.log(specialNumber(6), 'NOT!!');
