@@ -14,6 +14,12 @@ function unluckyDays(year) {
   return unluckyDays;
 }
 
+function unluckyDays(year) {
+  return Array.from({ length: 12 }).filter(
+    (_, monthIndex) => new Date(year, monthIndex, 13).getDay() === 5,
+  ).length;
+}
+
 console.log(unluckyDays(2819), 2);
 console.log(unluckyDays(2792), 2);
 console.log(unluckyDays(2723), 2);
