@@ -22,6 +22,15 @@ function crap(garden, bags, cap) {
   return totalCapacity < 0 ? 'Cr@p' : 'Clean';
 }
 
+function crap(garden, bags, cap) {
+  const flat = garden.flat();
+
+  if (flat.includes('D')) return 'Dog!!';
+
+  const crapCount = flat.filter((cell) => cell === '@').length;
+  return crapCount > bags * cap ? 'Cr@p' : 'Clean';
+}
+
 console.log(
   crap(
     [
