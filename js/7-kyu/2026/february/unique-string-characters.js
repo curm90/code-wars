@@ -18,6 +18,27 @@ function solve(a, b) {
   return result;
 }
 
+function solve(a, b) {
+  const setA = new Set(a);
+  const setB = new Set(b);
+
+  let result = '';
+
+  for (const letter of a) {
+    if (!setB.has(letter)) {
+      result += letter;
+    }
+  }
+
+  for (const letter of b) {
+    if (!setA.has(letter)) {
+      result += letter;
+    }
+  }
+
+  return result;
+}
+
 console.log(solve('xyab', 'xzca'), 'ybzc');
 console.log(solve('xyabb', 'xzca'), 'ybbzc');
 console.log(solve('abcd', 'xyz'), 'abcdxyz');
