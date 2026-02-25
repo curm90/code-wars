@@ -15,6 +15,12 @@ function longestWord(stringOfWords) {
   return result;
 }
 
+function longestWord(stringOfWords) {
+  return stringOfWords
+    .split(' ')
+    .reduceRight((longest, current) => (current.length > longest.length ? current : longest), '');
+}
+
 console.log(longestWord('lonely'), 'lonely');
 console.log(longestWord('a pair'), 'pair');
 console.log(longestWord('a b c d e fgh'), 'fgh');
